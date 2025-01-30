@@ -10,7 +10,7 @@ const EmployeeSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    nic: {
+    NIC: {
       type: String, 
     },
     img: {
@@ -26,6 +26,9 @@ const EmployeeSchema = new mongoose.Schema(
     contactNumber: {
       type: String,
       required: true,
+    },
+    NIC_NO: {
+      type: String, 
     },
   },
   { timestamps: true }

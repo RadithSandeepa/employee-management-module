@@ -5,9 +5,14 @@ import { AuthContext } from "./context/AuthContext";
 import Login from './pages/Login';
 import Home from './pages/Home';
 import List from './pages/List';
-import New from './pages/New';
-import { employeeColumns, userColumns } from "./datatableSource";
-import { employeeInputs, userInputs } from "./formSource";
+import NewEmployee from './pages/NewEmployee';
+import SingleEmployee from './pages/SingleEmployee';
+import EditEmployee from './pages/EditEmployee';
+import NewUser from './pages/NewUser';
+import SingleUser from './pages/SingleUser';
+import EditUser from './pages/EditUser';
+import { employeeColumns, userColumns } from "./datatableSource"; 
+
 
 function App() {
   const ProtectedRoute = ({ children }) => {
@@ -44,19 +49,29 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-              {/* <Route
-                path=":userId"
-                element={
-                  <ProtectedRoute>
-                    <Single />
-                  </ProtectedRoute>
-                }
-              /> */}
+              <Route path=":userId">
+                <Route
+                  index
+                  element={
+                    <ProtectedRoute>
+                      <SingleUser />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="edit"
+                  element={
+                    <ProtectedRoute>
+                      <EditUser />
+                    </ProtectedRoute>
+                  }
+                />
+              </Route>
               <Route
                 path="new"
                 element={
                   <ProtectedRoute>
-                    <New inputs={userInputs} title="Add New User" />
+                    <NewUser title="Add New User" />
                   </ProtectedRoute>
                 }
               />
@@ -70,19 +85,29 @@ function App() {
               </ProtectedRoute>
             }
           />
-          {/* <Route
-            path=":employeeId"
-            element={
-              <ProtectedRoute>
-                <Single />
-              </ProtectedRoute>
-            }
-          /> */}
+          <Route path=":employeeId">
+            <Route
+              index
+              element={
+                <ProtectedRoute>
+                  <SingleEmployee />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="edit"
+              element={
+                <ProtectedRoute>
+                  <EditEmployee />
+                </ProtectedRoute>
+              }
+            />
+          </Route>
           <Route
             path="new"
             element={
               <ProtectedRoute>
-                <New inputs={employeeInputs} title="Add New Employee" />
+                <NewEmployee title="Add New Employee" />
               </ProtectedRoute>
             }
           />

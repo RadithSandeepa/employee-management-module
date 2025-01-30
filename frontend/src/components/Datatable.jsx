@@ -30,7 +30,7 @@ const Datatable = ({columns}) => {
       renderCell: (params) => {
         return (
           <div className="flex justify-center items-center gap-4 h-full">
-            <Link to="/users/test" style={{ textDecoration: "none" }}> 
+            <Link to={`/${path}/${params.row._id}`} style={{ textDecoration: "none" }}> 
               <div className="text-blue-800 px-1 py-0.5 rounded border border border-blue-800 cursor-pointer w-[100px] h-[30px] flex justify-center items-center hover:bg-blue-100 transition-colors">View</div>
             </Link>
             <div
