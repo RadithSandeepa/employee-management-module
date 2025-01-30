@@ -29,18 +29,6 @@ export const employeeInputs = [
       type: "text",
       placeholder: "A1234567",
     },
-    {
-      id: "birthCertificate",
-      label: "Birth Certificate",
-      type: "text",
-      placeholder: "file-path-or-url",
-    },
-    {
-      id: "educationCertificates",
-      label: "Education Certificates",
-      type: "text",
-      placeholder: "file-path-or-url (comma-separated for multiple)",
-    },
   ];
   
 export const userInputs = [
@@ -66,12 +54,6 @@ export const userInputs = [
       id: "password",
       label: "Password",
       type: "password",
-    },
-    {
-      id: "img",
-      label: "Profile Image URL",
-      type: "text",
-      placeholder: "image-url",
     },
     {
       id: "isAdmin",
