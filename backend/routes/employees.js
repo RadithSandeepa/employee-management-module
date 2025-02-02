@@ -9,6 +9,7 @@ import {
 import { verifyAdmin } from "../utils/verifyToken.js";
 
 const router = express.Router();
+
 //CREATE
 router.post("/", verifyAdmin, createEmployee);
 

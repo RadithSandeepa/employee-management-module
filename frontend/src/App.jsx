@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
+import { Toaster } from "react-hot-toast";
 import Login from './pages/Login';
 import Home from './pages/Home';
 import List from './pages/List';
@@ -11,6 +12,7 @@ import EditEmployee from './pages/EditEmployee';
 import NewUser from './pages/NewUser';
 import SingleUser from './pages/SingleUser';
 import EditUser from './pages/EditUser';
+import Profile from './pages/Profile';
 import { employeeColumns, userColumns } from "./datatableSource"; 
 
 
@@ -28,6 +30,7 @@ function App() {
   return (
     <div className='app'>
       <BrowserRouter>
+      <Toaster position="top-center" reverseOrder={false} />
         <Routes>
           <Route path="/">
             <Route path="login" element={<Login />} />
@@ -38,6 +41,13 @@ function App() {
                   <Home />
                 </ProtectedRoute>
               }
+            />
+            <Route path=":userId" 
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              } 
             />
           </Route>
           <Route path="users">

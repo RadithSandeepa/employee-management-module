@@ -1,13 +1,22 @@
 import { useParams, Link  } from "react-router-dom"; 
 import useFetch from "../hooks/useFetch";
+import { useEffect } from "react";
+import { toast } from "react-hot-toast";
 
 const SingleEmployee = () => {
   const { employeeId } = useParams(); // Get the employee ID from the URL
   const { data: employee, loading, error } = useFetch(`/api/employees/${employeeId}`);
  
-  if (!employee) {
-    return <div>Loading...</div>;
-  }
+  useEffect(() => {
+    if (loading) {
+      toast.loading("Fetching employee details...");
+    } else {
+      toast.dismiss();
+    }
+    if (error) {
+      toast.error("Failed to fetch employee details.");
+    }
+  }, [loading, error]);
 
   return (
     <div className="flex w-full">

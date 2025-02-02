@@ -4,6 +4,7 @@ import {
   deleteUser,
   getUser,
   getUsers,
+  updatePassword,
 } from "../controllers/user.js";
 import { verifyAdmin, verifyToken, verifyUser } from "../utils/verifyToken.js";
 
@@ -20,5 +21,8 @@ router.get("/:id", verifyUser, getUser);
 
 //GET ALL
 router.get("/", verifyAdmin, getUsers);
+
+//UPDATE password
+router.put("/:id/changepassword", verifyUser, updatePassword);
 
 export default router;

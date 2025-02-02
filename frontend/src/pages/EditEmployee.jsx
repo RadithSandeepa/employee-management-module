@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import useFetch from "../hooks/useFetch";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
+import toast from "react-hot-toast";
 
 const EditEmployee = () => {
   const { employeeId } = useParams(); // Get employee ID from URL
@@ -19,9 +20,36 @@ const EditEmployee = () => {
     contactNumber: "",
   });
 
-  // Use useEffect to update info when employee data is fetched
+  const validateInputs = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const nicRegex = /^[0-9]{9}[vVxX]?$|^[0-9]{12}$/;
+    const contactRegex = /^[0-9]{10}$/;
+
+    if (!info.name.trim() || !info.email.trim() || !info.NIC_NO.trim() || !info.position.trim() || !info.contactNumber.trim()) {
+      toast.error("All fields are required.");
+      return false;
+    }
+    if (!emailRegex.test(info.email)) {
+      toast.error("Invalid email format.");
+      return false;
+    }
+    if (!nicRegex.test(info.NIC_NO)) {
+      toast.error("Invalid NIC number.");
+      return false;
+    }
+    if (!contactRegex.test(info.contactNumber)) {
+      toast.error("Invalid contact number (10 digits required).");
+      return false;
+    }
+    return true;
+  };
+
   useEffect(() => {
+    if (loading) {
+      toast.loading("Loading employee data...");
+    }
     if (employee) {
+      toast.dismiss(); // Remove loading toast
       setInfo({
         name: employee.name || "",
         email: employee.email || "",
@@ -30,7 +58,11 @@ const EditEmployee = () => {
         contactNumber: employee.contactNumber || "",
       });
     }
-  }, [employee]); // Dependency array ensures this runs when employee changes
+    if (error) {
+      toast.dismiss();
+      toast.error("Failed to fetch employee data.");
+    }
+  }, [employee, loading, error]); // Runs when employee, loading, or error state changes
 
 
   const handleChange = (e) => {
@@ -59,6 +91,7 @@ const EditEmployee = () => {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
+    if (!validateInputs()) return;
 
     // Upload new files if provided
     const nicUrl = await uploadFileToCloudinary(nic, "EM_System");
@@ -74,10 +107,9 @@ const EditEmployee = () => {
 
     try {
       await axios.put(`/api/employees/${employeeId}`, updatedEmployee);
-      console.log("Employee updated successfully!");
-      alert("Employee updated!");
+      toast.success("Employee updated successfully!");
     } catch (err) {
-      console.error("Error updating employee:", err);
+      toast.error("Error updating employee.");
     }
   };
 

@@ -1,6 +1,7 @@
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const NewEmployee = ({ title }) => {
   const [file, setFile] = useState(null);
@@ -18,6 +19,30 @@ const NewEmployee = ({ title }) => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
+  const validateInputs = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const nicRegex = /^[0-9]{9}[vVxX]?$|^[0-9]{12}$/;
+    const contactRegex = /^[0-9]{10}$/;
+
+    if (!info.name.trim() || !info.email.trim() || !info.NIC_NO.trim() || !info.position.trim() || !info.contactNumber.trim()) {
+      toast.error("All fields are required.");
+      return false;
+    }
+    if (!emailRegex.test(info.email)) {
+      toast.error("Invalid email format.");
+      return false;
+    }
+    if (!nicRegex.test(info.NIC_NO)) {
+      toast.error("Invalid NIC number.");
+      return false;
+    }
+    if (!contactRegex.test(info.contactNumber)) {
+      toast.error("Invalid contact number (10 digits required).");
+      return false;
+    }
+    return true;
+  };
+
   const uploadFileToCloudinary = async (file, uploadPreset) => {
     const data = new FormData();
     data.append("file", file);
@@ -31,13 +56,14 @@ const NewEmployee = ({ title }) => {
       );
       return uploadRes.data.secure_url; // Return the uploaded file's secure URL
     } catch (err) {
-      console.error("Error uploading file:", err);
+      toast.error("File upload failed!");
       return null;
     }
   };
 
   const handleClick = async (e) => {
     e.preventDefault();
+    if (!validateInputs()) return;
 
     // Upload NIC (PDF)
     const nicUrl = await uploadFileToCloudinary(nic, "EM_System");
@@ -49,11 +75,9 @@ const NewEmployee = ({ title }) => {
     const imageUrl = file ? await uploadFileToCloudinary(file, "EM_System") : null;
 
     if ((nicUrl && birthCertificateUrl) || imageUrl) {
-      console.log("NIC Uploaded:", nicUrl);
-      console.log("Birth Certificate Uploaded:", birthCertificateUrl);
-      console.log("Image Uploaded:", imageUrl);
+      toast.success("Files uploaded!");
     } else {
-      console.error("File upload failed!");
+      toast.error("File upload failed!");
       return;
     }
 
@@ -68,9 +92,9 @@ const NewEmployee = ({ title }) => {
     // Send data to the backend
     try {
       await axios.post("/api/employees/", newEmployee);
-      console.log("Employee Added successfully!");
+      toast.success("Employee added successfully!");
     } catch (err) {
-      console.error("Error registering employee:", err);
+      toast.error("Error adding employee!");
     }
   };
 

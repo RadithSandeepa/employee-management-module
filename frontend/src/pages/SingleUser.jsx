@@ -1,13 +1,22 @@
 import { useParams, Link } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
+import { useEffect } from "react";
+import { toast } from "react-hot-toast";
 
 const SingleUser = () => {
   const { userId } = useParams(); // Get the user ID from the URL
   const { data: user, loading, error } = useFetch(`/api/users/${userId}`);
  
-  if (!user) {
-    return <div>Loading...</div>;
-  }
+  useEffect(() => {
+    if (loading) {
+      toast.loading("Fetching user details...");
+    } else {
+      toast.dismiss();
+    }
+    if (error) {
+      toast.error("Failed to fetch user details.");
+    }
+  }, [loading, error]);
 
   return (
     <div className="flex w-full">
@@ -64,3 +73,4 @@ const SingleUser = () => {
 };
 
 export default SingleUser;
+

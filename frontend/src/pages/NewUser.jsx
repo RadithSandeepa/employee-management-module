@@ -1,6 +1,7 @@
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const NewUser = ({ title }) => {
   const [file, setFile] = useState(null);
@@ -38,6 +39,27 @@ const NewUser = ({ title }) => {
 
   const handleClick = async (e) => {
     e.preventDefault();
+
+    if (!info.username.trim() || !info.email.trim() || !info.phone.trim()) {
+      toast.error("All fields must be filled!");
+      return;
+    }
+    
+    if (!/^\S+@\S+\.\S+$/.test(info.email)) {
+      toast.error("Invalid email format!");
+      return;
+    }
+    
+    if (!/^\d+$/.test(info.phone)) {
+      toast.error("Phone number should contain only digits!");
+      return;
+    }
+
+    if (info.password.length < 6) {
+      toast.error("Password must be at least 6 characters!");
+      return;
+    }
+
     const imageUrl = file ? await uploadFileToCloudinary(file, "EM_System") : null;
 
     const newUser = {
@@ -47,9 +69,9 @@ const NewUser = ({ title }) => {
 
     try {
       await axios.post("/api/auth/register/", newUser);
-      console.log("User registered successfully!");
+      toast.success("User added successfully!");
     } catch (err) {
-      console.error("Error registering user:", err);
+      toast.error("Error adding user.");
     }
   };
 
@@ -135,7 +157,7 @@ const NewUser = ({ title }) => {
                 onClick={handleClick}
                 className="w-36 p-2.5 bg-teal-500 text-white font-bold cursor-pointer mt-2.5"
               >
-                Register
+                Add
               </button>
             </form>
           </div>
