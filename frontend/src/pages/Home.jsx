@@ -24,27 +24,10 @@ const Home = () => {
   return (
     <div className='min-h-screen flex flex-col'> 
         <Navbar /> 
-        <div>
-            <div className="flex-1 flex flex-col items-center justify-center gap-4 h-[80vh]">
-            <Link
-            to="/employees"
-            className="text-black text-xl font-semibold hover:text-gray-700 cursor-pointer"
-            >
-            Employees
-            </Link>
-            <Link
-            to="/users"
-            className="text-black text-xl font-semibold hover:text-gray-700 cursor-pointer"
-            >
-            Users
-            </Link>
-            <button
-              onClick={handleLogout}
-              className="mt-4 px-6 py-2 bg-red-500 text-white font-semibold rounded-md hover:bg-red-600"
-            >
-              Logout
-            </button>
-            </div>   
+        <div className='flex flex-grow items-center justify-center'>
+          <p className="text-6xl md:text-5xl sm:text-4xl text-center">
+            Employee Management System
+          </p>
         </div>
     </div>
   )

@@ -124,13 +124,13 @@ const Profile = () => {
   };
 
   return (
-    <div className="flex w-full p-5">
+    <div className="flex w-full p-5 mt-5">
       <div className="flex-6">
-        <div className="shadow-md p-4 mb-5">
-          <h1 className="text-gray-500 text-2xl font-semibold">Profile</h1>
+        <div className="p-4 mb-5">
+          <h1 className="text-3xl font-semibold">Profile</h1>
         </div>
-        <div className="shadow-md p-4 flex">
-          <div className="flex-1 text-center">
+        <div className="p-4 flex">
+          <div className="flex-1 flex text-center align-center justify-center">
             <img
               src={
                 file
@@ -138,7 +138,7 @@ const Profile = () => {
                   : user.img || "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
               }
               alt="Profile"
-              className="w-32 h-32 rounded-full object-cover border-2 border-gray-300"
+              className="w-40 h-40 rounded-full object-cover border-2 border-gray-300"
             />
           </div>
           <div className="flex-2 px-5">
@@ -158,7 +158,7 @@ const Profile = () => {
 
               {/* Username Input */}
               <div className="w-2/5">
-                <label htmlFor="username">Username</label>
+                <label htmlFor="username">Username:</label>
                 <input
                   onChange={handleChange}
                   type="text"
@@ -170,7 +170,7 @@ const Profile = () => {
 
               {/* Email Input */}
               <div className="w-2/5">
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">Email:</label>
                 <input
                   onChange={handleChange}
                   type="email"
@@ -182,7 +182,7 @@ const Profile = () => {
 
               {/* Phone Input */}
               <div className="w-2/5">
-                <label htmlFor="phone">Phone</label>
+                <label htmlFor="phone">Phone:</label>
                 <input
                   onChange={handleChange}
                   type="text"
@@ -216,7 +216,7 @@ const Profile = () => {
               {/* Submit Button */}
               <button
                 onClick={handleUpdate}
-                className="w-36 p-2 bg-teal-500 text-white font-bold rounded-md cursor-pointer mt-2.5 hover:bg-teal-600"
+                className="w-36 p-2 bg-gray-900 text-white cursor-pointer mt-2.5 hover:scale-110 transition-all duration-200"
               >
                 Save Changes
               </button>
@@ -225,13 +225,13 @@ const Profile = () => {
         </div>
         {/* Password Change Section */}
         <div className="shadow-md p-4 mt-6">
-          <h2 className="text-gray-500 text-xl font-semibold mb-4">Change Password</h2>
+          <h2 className="text-xl font-semibold mb-4">Change Password</h2>
           <form className="flex flex-col gap-4">
-            <div className="w-2/5">
-              <label htmlFor="password">New Password</label>
+            <div className="w-full">
               <input
                 type="password"
                 id="password"
+                placeholder="New Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full p-2 border-b border-gray-400 focus:outline-none"
@@ -239,7 +239,7 @@ const Profile = () => {
             </div>
             <button
               onClick={handlePasswordChange}
-              className="w-36 p-2 bg-blue-500 text-white font-bold rounded-md cursor-pointer mt-2.5 hover:bg-blue-600"
+              className="w-72 p-2 bg-gray-900 text-white cursor-pointer mt-2.5 hover:scale-110 transition-all duration-200"
             >
               Update Password
             </button>

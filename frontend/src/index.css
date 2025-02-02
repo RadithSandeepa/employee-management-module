@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+body {
+    font-family: 'Raleway', serif;
+    font-style: normal;
+  }

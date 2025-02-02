@@ -113,9 +113,6 @@ const EditEmployee = () => {
     }
   };
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error fetching employee data.</div>;
-
   return (
     <div className="flex w-full">
       <div className="flex-6">
