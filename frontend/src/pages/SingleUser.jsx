@@ -19,19 +19,19 @@ const SingleUser = () => {
   }, [loading, error]);
 
   return (
-    <div className="flex w-full">
+    <div className="flex w-full mt-5">
       <div className="flex-6">
-        <div className="shadow-md p-2.5 m-5 flex justify-between">
-          <h1 className="text-gray-400 text-xl">User Details</h1>
+        <div className="p-2.5 m-5 flex justify-between">
+          <h1 className="text-3xl font-semibold">User Details</h1>
           <Link 
             to={`/users/${userId}/edit`} 
-            className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+            className="w-36 p-2 bg-gray-900 text-white text-center cursor-pointer mt-2.5 hover:scale-110 transition-all duration-200"
           >
             Edit
           </Link>
         </div>
-        <div className="shadow-md p-2.5 m-5 flex">
-          <div className="flex-1 text-center">
+        <div className="p-2.5 m-5 flex">
+          <div className="flex-1 flex text-center align-center justify-center">
             <img
               src={
                 user.img
@@ -39,7 +39,7 @@ const SingleUser = () => {
                   : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
               }
               alt="User"
-              className="w-24 h-24 rounded-full object-cover"
+              className="w-40 h-40 rounded-full object-cover border-2 border-gray-300"
             />
           </div>
           <div className="flex-2 px-5">

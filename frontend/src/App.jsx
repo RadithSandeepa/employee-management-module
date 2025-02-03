@@ -81,7 +81,7 @@ function App() {
                 path="new"
                 element={
                   <ProtectedRoute>
-                    <NewUser title="Add New User" />
+                    <NewUser title="New User" />
                   </ProtectedRoute>
                 }
               />
@@ -117,7 +117,7 @@ function App() {
             path="new"
             element={
               <ProtectedRoute>
-                <NewEmployee title="Add New Employee" />
+                <NewEmployee title="New Employee" />
               </ProtectedRoute>
             }
           />

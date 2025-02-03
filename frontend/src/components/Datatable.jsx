@@ -46,10 +46,10 @@ const Datatable = ({columns}) => {
         return (
           <div className="flex justify-center items-center gap-4 h-full">
             <Link to={`/${path}/${params.row._id}`} style={{ textDecoration: "none" }}> 
-              <div className="text-blue-800 px-1 py-0.5 rounded border border-blue-800 cursor-pointer w-[100px] h-[30px] flex justify-center items-center hover:bg-blue-100 transition-colors">View</div>
+              <div className="text-blue-800 px-1 py-0.5 border border-dotted border-blue-800 cursor-pointer w-[100px] h-[30px] flex justify-center items-center hover:bg-blue-100 transition-colors">View</div>
             </Link>
             <div
-              className="text-red-500 px-1 py-0.5 rounded border border-red-600 cursor-pointer w-[100px] h-[30px] flex justify-center items-center hover:bg-red-100 transition-colors"
+              className="text-red-500 px-1 py-0.5 border border-dotted border-red-600 cursor-pointer w-[100px] h-[30px] flex justify-center items-center hover:bg-red-100 transition-colors"
               onClick={() => handleDelete(params.row._id)}
             >
               Delete
@@ -62,8 +62,8 @@ const Datatable = ({columns}) => {
   return (
     <div className="datatable">
       <div className="flex justify-between items-center mb-4">
-        <h1 className="text-2xl font-semibold capitalize">{path}</h1>
-        <Link to={`/${path}/new`} className="text-green-500 px-4 py-2 rounded border border-green-300 hover:bg-green-50 transition-colors">
+        <h1 className="text-3xl font-semibold capitalize">{path}</h1>
+        <Link to={`/${path}/new`} className="text-green-500 px-4 py-2 border border-dotted border-green-300 hover:bg-green-50 transition-colors">
           Add New
         </Link>
       </div>
