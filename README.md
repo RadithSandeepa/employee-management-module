@@ -255,7 +255,7 @@ Updates an existing employee by their ID.
 
 ```json
 {
-  "_id": "string",                // Employee ID (auto-generated)
+  "_id": "string",               // Employee ID (auto-generated)
   "name": "string",              // Employee's updated name
   "email": "string",             // Employee's updated email
   "NIC": "string",               // Updated URL or path to the employee's NIC
@@ -305,7 +305,7 @@ Fetches a specific employee by their ID.
 
 ```json
 {
-  "_id": "string",                // Employee ID
+  "_id": "string",               // Employee ID
   "name": "string",              // Employee's name
   "email": "string",             // Employee's email
   "NIC": "string",               // URL or path to the employee's NIC
@@ -706,15 +706,15 @@ export const verifyAdmin = (req, res, next) => {
 router.put("/:id", verifyUser, updateUser);
 ```
 **Allows:**  
-✅ The user with the corresponding `id`  
-✅ Admin users  
+- The user with the corresponding `id`  
+-  Admin users  
 
 ### Protecting a Route with `verifyAdmin`
 ```javascript
 router.get("/", verifyAdmin, getUsers);
 ```
 **Allows:**  
-✅ Admin users only  
+-  Admin users only  
 
 ---
 
@@ -726,8 +726,126 @@ router.get("/", verifyAdmin, getUsers);
 <a id="Folder-Structure"></a>
 ## Folder Structure
 
-
+```
+backend/
+├── controllers/            # Handles request logic
+│   ├── auth.js             # Authentication-related controllers
+│   ├── user.js             # User-related controllers
+│   └── employee.js         # Employee-related controllers
+├── models/                 # Database models
+│   ├── User.js             # User schema
+│   └── Employee.js         # Employee schema
+├── routes/                 # API routes
+│   ├── auth.js             # Authentication routes
+│   ├── users.js            # User routes
+│   └── employees.js        # Employee routes
+├── utils/                  # Utility functions
+│   ├── error.js            # Error handling
+│   └── verifyToken.js      # Middleware for authentication
+├── .env                    # Environment variables
+├── .gitignore              # Git ignore file
+├── index.js                # Main server entry point
+├── package.json            # Dependencies and scripts
+└── package-lock.json       # Dependency lock file
+└── node_modules/           # Dependencies (auto-generated)
+```
+```
+frontend/
+├── public/                 # Static assets (favicons, etc.)
+├── src/                    # Main source code
+│   ├── components/         # Reusable UI components
+│   ├── context/            # Global state management
+│   ├── hooks/              # Custom React hooks
+│   ├── pages/              # Main application pages
+│   ├── App.jsx             # Main application component
+│   ├── datatableSource.jsx # Data table configuration
+│   ├── index.css           # Global CSS styles
+│   └── main.jsx            # Application entry point
+├── .gitignore              # Git ignore file
+├── node_modules/           # Dependencies (auto-generated)
+├── eslint.config.js        # ESLint configuration
+├── index.html              # Main HTML file
+├── package-lock.json       # Dependency lock file
+├── package.json            # Project metadata and scripts
+└── vite.config.js          # Vite configuration file
+```
 
 
 <a id="Setup-Instructions"></a>
 ## Setup Instructions
+
+### Backend Setup
+
+### **Install Dependencies**
+Make sure you have **Node.js** installed, then run:
+```bash
+cd backend
+npm install
+```
+This installs essential packages like **Express, Mongoose, bcryptjs, dotenv, cors, and jsonwebtoken**.
+
+---
+
+### **Create a `.env` file**  
+Inside `backend/`, create a `.env` file and paste the following template:  
+
+```env
+MONGO=your_mongodb_connection_string
+JWT=your_jwt_secret_key
+```
+
+Make sure to replace `your_mongodb_connection_string` and `your_jwt_secret_key` with your actual values.  
+
+---
+
+### **Run the Backend Server**
+```bash
+npm start
+```
+Your backend will run on **http://localhost:8800**.
+
+---
+
+### **Dummy Data (data.json)**
+To populate your database, retrieve the `data.json` file from the repository and insert some sample data into MongoDB. Here's an example of user data from `data.json`:  
+```json
+[
+  {
+    "username": "john_doe",
+    "email": "john.doe@example.com",
+    "phone": "+1234567890",
+    "password": "hashed_password",
+    "isAdmin": false
+  },
+  {
+    "username": "admin_user",
+    "email": "admin@example.com",
+    "phone": "+9876543210",
+    "password": "hashed_password",
+    "isAdmin": true
+  }
+]
+```
+
+### Frontend Setup
+
+### **Install Vite and React**
+```bash
+cd frontend
+npm create vite@latest .
+```
+Choose `React` as the framework.
+
+Then install dependencies:
+```bash
+npm install
+```
+
+---
+
+### **Run the Frontend Server**
+```bash
+npm run dev
+```
+Your frontend will run on **http://localhost:5173**.
+
