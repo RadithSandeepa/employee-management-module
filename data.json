@@ -1,0 +1,217 @@
+{
+    "users": [
+      {
+        "username": "adminUser1",
+        "email": "admin1@example.com",
+        "phone": "+1234567890",
+        "password": "Admin123",
+        "isAdmin": true
+      },
+      {
+        "username": "adminUser2",
+        "email": "admin2@example.com",
+        "phone": "+1234567890",
+        "password": "Admin123",
+        "isAdmin": true
+      },
+      {
+        "username": "adminUser3",
+        "email": "admin3@example.com",
+        "phone": "+1234567890",
+        "password": "Admin123",
+        "isAdmin": true
+      },
+      {
+        "username": "adminUser4",
+        "email": "admin4@example.com",
+        "phone": "+1234567890",
+        "password": "Admin123",
+        "isAdmin": true
+      },
+      {
+        "username": "adminUser5",
+        "email": "admin5@example.com",
+        "phone": "+1234567890",
+        "password": "Admin123",
+        "isAdmin": true
+      },
+      {
+        "username": "adminUser6",
+        "email": "admin6@example.com",
+        "phone": "+1234567890",
+        "password": "Admin123",
+        "isAdmin": true
+      },
+      {
+        "username": "adminUser7",
+        "email": "admin7@example.com",
+        "phone": "+1234567890",
+        "password": "Admin123",
+        "isAdmin": true
+      },
+      {
+        "username": "adminUser8",
+        "email": "admin8@example.com",
+        "phone": "+1234567890",
+        "password": "Admin123",
+        "isAdmin": true
+      },
+      {
+        "username": "adminUser9",
+        "email": "admin9@example.com",
+        "phone": "+1234567890",
+        "password": "Admin123",
+        "isAdmin": true
+      },
+      {
+        "username": "adminUser10",
+        "email": "admin10@example.com",
+        "phone": "+1234567890",
+        "password": "Admin123",
+        "isAdmin": true
+      },
+      {
+        "username": "adminUser11",
+        "email": "admin11@example.com",
+        "phone": "+1234567890",
+        "password": "Admin123",
+        "isAdmin": true
+      },
+      {
+        "username": "adminUser12",
+        "email": "admin12@example.com",
+        "phone": "+1234567890",
+        "password": "Admin123",
+        "isAdmin": true
+      },
+      {
+        "username": "adminUser13",
+        "email": "admin13@example.com",
+        "phone": "+1234567890",
+        "password": "Admin123",
+        "isAdmin": true
+      },
+      {
+        "username": "adminUser14",
+        "email": "admin14@example.com",
+        "phone": "+1234567890",
+        "password": "Admin123",
+        "isAdmin": true
+      },
+      {
+        "username": "adminUser15",
+        "email": "admin15@example.com",
+        "phone": "+1234567890",
+        "password": "Admin123",
+        "isAdmin": true
+      }
+    ],
+    "employees": [
+      {
+        "name": "Employee 1",
+        "email": "employee1@example.com",
+        "NIC_NO": "990011223V",
+        "position": "Manager",
+        "contactNumber": "+1122334455"
+      },
+      {
+        "name": "Employee 2",
+        "email": "employee2@example.com",
+        "NIC_NO": "990011224V",
+        "position": "Accountant",
+        "contactNumber": "+1122334455"
+      },
+      {
+        "name": "Employee 3",
+        "email": "employee3@example.com",
+        "NIC_NO": "990011225V",
+        "position": "Software Engineer",
+        "contactNumber": "+1122334455"
+      },
+      {
+        "name": "Employee 4",
+        "email": "employee4@example.com",
+        "NIC_NO": "990011226V",
+        "position": "HR Manager",
+        "contactNumber": "+1122334455"
+      },
+      {
+        "name": "Employee 5",
+        "email": "employee5@example.com",
+        "NIC_NO": "990011227V",
+        "position": "Marketing Executive",
+        "contactNumber": "+1122334455"
+      },
+      {
+        "name": "Employee 6",
+        "email": "employee6@example.com",
+        "NIC_NO": "990011228V",
+        "position": "Sales Representative",
+        "contactNumber": "+1122334455"
+      },
+      {
+        "name": "Employee 7",
+        "email": "employee7@example.com",
+        "NIC_NO": "990011229V",
+        "position": "IT Support",
+        "contactNumber": "+1122334455"
+      },
+      {
+        "name": "Employee 8",
+        "email": "employee8@example.com",
+        "NIC_NO": "990011230V",
+        "position": "Data Analyst",
+        "contactNumber": "+1122334455"
+      },
+      {
+        "name": "Employee 9",
+        "email": "employee9@example.com",
+        "NIC_NO": "990011231V",
+        "position": "Receptionist",
+        "contactNumber": "+1122334455"
+      },
+      {
+        "name": "Employee 10",
+        "email": "employee10@example.com",
+        "NIC_NO": "990011232V",
+        "position": "Operations Manager",
+        "contactNumber": "+1122334455"
+      },
+      {
+        "name": "Employee 11",
+        "email": "employee11@example.com",
+        "NIC_NO": "990011233V",
+        "position": "Security Officer",
+        "contactNumber": "+1122334455"
+      },
+      {
+        "name": "Employee 12",
+        "email": "employee12@example.com",
+        "NIC_NO": "990011234V",
+        "position": "Finance Officer",
+        "contactNumber": "+1122334455"
+      },
+      {
+        "name": "Employee 13",
+        "email": "employee13@example.com",
+        "NIC_NO": "990011235V",
+        "position": "Customer Service",
+        "contactNumber": "+1122334455"
+      },
+      {
+        "name": "Employee 14",
+        "email": "employee14@example.com",
+        "NIC_NO": "990011236V",
+        "position": "Business Analyst",
+        "contactNumber": "+1122334455"
+      },
+      {
+        "name": "Employee 15",
+        "email": "employee15@example.com",
+        "NIC_NO": "990011237V",
+        "position": "Project Manager",
+        "contactNumber": "+1122334455"
+      }
+    ]
+  }
+  
